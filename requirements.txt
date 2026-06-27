@@ -1,0 +1,7 @@
+twilio
+deepgram-sdk
+openai
+python-dotenv
+flask
+pyngrok
+telnyx

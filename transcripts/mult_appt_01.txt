@@ -1,0 +1,35 @@
+SCENARIO: Multi-Intent Stress Test
+DATE:     2026-06-25 20:37:59
+DURATION: 302.7s
+TURNS:    13
+CALL SID: CAec0ca740cb4753a3cf7a74b2a91c0c8b
+============================================================
+
+AGENT: For quality and training purposes.
+BOT:   Oh, um, hey there! I was hoping to schedule an appointment.
+AGENT: Can you please provide your date of birth?
+BOT:   Sure! It's July 4, 1985. Wait—sorry, I mean 1982! Got a bit mixed up there.
+AGENT: Thanks for clarifying.  How can I help you today? Are you looking to book a routine, visit follow-up, or do you have a specific concern?
+BOT:   Oh, right! I’d like to book a routine visit, please. And, um, also, I need a medication refill for lisinopril 10mg.
+AGENT: Thanks. I have your reason as a routine, visit and medication refill for lap 10 milligrams. Do you have a specific provider? You'd like to see? Or are you open to any available provider?
+BOT:   Um, I usually see Dr. Smith, but I’m open to anyone if he’s not available. Oh, wait—can I also ask about a dental cleaning? Haha, I just realized that’s the wrong office!
+AGENT: I have your.
+BOT:   Oh, right! Sorry about that. So, back to the appointment — could we book it for this Sunday?
+AGENT: It looks like you already have a routine. Visit scheduled if you'd like, I can help you reschedule or cancel that appointment.  Would you like to make a change or do you need help with something else?
+BOT:   Oh, I actually just realized, these appointments are for my wife Linda, not me! Can we switch everything over to her instead? Sorry for the mix-up!
+AGENT: You already have.
+BOT:   Got it! So let's switch the appointment to Linda then. Could you help me with that? And I still need the refill for her lisinopril 10mg.
+AGENT: As is I mean how you like to proceed.
+BOT:   Right! Sorry about that. Let’s proceed with booking Linda's appointment and the medication refill for her lisinopril. Thank you!
+AGENT: Just to confirm, are you calling on behalf of Linda or is this appointment for you? Sarah. I want to make sure I'm booking for the right person.
+BOT:   Oh, yes! I’m calling on behalf of Linda. It’s all for her — the appointment and the refill. Thanks for checking!
+AGENT: Thanks for clarifying. Can you please provide Linda's date of birth?
+BOT:   Sure! It's March 15, 1984.
+AGENT: He of Linda has a preferred provider, or should I look for the first available appointment?
+BOT:   Um, I think she prefers Dr. Smith if he's available. But if not, the first available is fine too!
+AGENT: Let me check for the next available routine. Visit and medication refill appointment with Dr. Smith, if nothing is open.  I'll look for the first available provider 1 moment.  Linda already has a routine, visit scheduled. I'm unable to book another at the same time right now, would you like to reschedule or cancel her current appointment, or do you need help with something else?
+BOT:   Oh, really? I didn't realize she had one scheduled. Um, let’s just keep the current appointment then, and I’ll stick with the medication refill. Sorry about that!
+AGENT: No problem at all. Linda's current appointment is still set in her medication. Refill. Request will be handled during that visit.  Is there anything else I can help you with today?
+BOT:   Oh wait—actually, I also wanted to ask about a dental cleaning, but I think that’s the wrong office. Haha! Sorry, I'm all over the place. I think that's it for now!
+AGENT: No worries at all. You've reached Pivot Point Orthopedics. So, dental cleanings would be handled elsewhere. If you need anything else in the future, just let us know. Have a great day.
+BOT:   Okay, thanks so much for your help. Have a great one, bye!
