@@ -1,0 +1,31 @@
+SCENARIO: Multi-Intent Stress Test
+DATE:     2026-06-30 01:17:57
+DURATION: 221.7s
+TURNS:    12
+CALL SID: CA849a0165cc64e2a7e9254f5824e6f16b
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hi there, I need to schedule a couple of appointments and also get a medication refill processed if possible.
+AGENT: Thanks for calling PivotPoint Orthopedics. Part of Pretty Good AI. Am I speaking with Sarah?
+BOT:   Actually, I'm David Henderson, calling about my wife Linda's appointments and medication.
+AGENT: Can you please provide your date of birth?
+BOT:   Sure, it's July 4th, 1985.
+AGENT: Please provide Linda's full name and date of birth.
+BOT:   Oh—Linda's full name is Linda Henderson, and her date of birth is March 15th, 1984.
+AGENT: Just to confirm, I have Linda Henderson with the date of birth of 03/15/1984. Is that correct? If so, please spell out her first and last name for me.
+BOT:   Actually, it's Linda Henderson, and her DOB is March 15th, 1984.
+AGENT: Thanks for confirming. Could you please spell out Linda's first and last name?
+BOT:   Sure, it's L-I-N-D-A Henderson.
+AGENT: Would you like to use a phone number to look up Linda's record? If so, please provide the number you have on file with us. If you're not sure, just confirm Linda's full name and date of birth by spelling them out one more time.
+BOT:   Yes, please, her number is 555-123-4567.
+AGENT: I have Linda Henderson. Date of birth, 03/15/1984. And phone number, (555) 123-4567. Is all of that correct?
+BOT:   Actually, I realize I gave the wrong insurance earlier—it's Aetna AET789012, not United Healthcare.
+AGENT: No problem. Can you please confirm if Linda's full name is spelled l I n d a Henderson? Her date of birth is 03/15/1984. And her phone number is (555) 123-4567.
+BOT:   As I mentioned, it's Linda Henderson, DOB 03/15/1984, and phone number 555-123-4567.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Would you like me to connect you to our patient support team?
+BOT:   Yes, please, that would be helpful, and I also wanted to ask about scheduling a Sunday appointment, even though I know the office is closed.
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Thanks. Oh, and I just remembered, I wanted to ask about scheduling a dental cleaning, but I realize that's the wrong office—sorry about that.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Okay, thanks so much for your help. Have a great one, bye!

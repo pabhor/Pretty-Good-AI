@@ -1,0 +1,33 @@
+QA Report — Multi-Intent Stress Test
+============================================================
+Scenario ID : mult_appt_01
+Type        : Edge Case / Regression
+Severity    : High
+Tested      : 2026-06-30 01:18:02
+============================================================
+
+## CRITICAL BUGS
+- None
+
+## MAJOR BUGS
+- Failure to Address Multi-Intent Requests | Turn: 1 | Expected: The agent should acknowledge both appointment scheduling and medication refill requests. | Actual: The agent only acknowledges the call and asks for identification without addressing the requests.
+- Incorrect Handling of Insurance Correction | Turn: 9 | Expected: The agent should update the insurance information after the correction is provided. | Actual: The agent does not acknowledge or update the insurance information after the correction.
+
+## MINOR BUGS
+- Repeated Request for Spelling | Turn: 5 | Expected: The agent should not repeatedly ask for spelling if it has already been confirmed. | Actual: The agent asks for the spelling of Linda's name multiple times unnecessarily.
+- Incomplete Context Retention | Turn: 11 | Expected: The agent should retain context about the Sunday appointment request and address it. | Actual: The agent does not acknowledge or address the Sunday appointment request before transferring the call.
+
+## PASSED CRITERIA
+- PROFESSIONAL TONE — The agent maintained a professional and polite tone throughout the conversation, ensuring the patient felt heard and respected.
+- DATA ACCURACY — The agent accurately repeated the patient's name, date of birth, and phone number for confirmation.
+
+## QUALITY SCORE: 4
+
+## EXECUTIVE SUMMARY
+The AI agent demonstrated a professional tone and maintained data accuracy when confirming patient details. However, it failed to address multiple intents, such as scheduling appointments and processing medication refills, which are critical for patient satisfaction. Additionally, the agent did not update the insurance information after a correction was provided and did not handle the Sunday appointment request. These issues highlight significant gaps in multi-intent handling and context retention, impacting the overall functionality.
+
+## RECOMMENDED FIXES
+1. Enhance the agent's ability to handle and acknowledge multiple intents simultaneously, ensuring all patient requests are addressed.
+2. Implement logic to update and confirm corrected information, such as insurance details, to maintain data accuracy.
+3. Improve context retention to ensure the agent can track and respond to all parts of the conversation, including specific scheduling requests.
+4. Reduce unnecessary repetition, such as repeated requests for spelling, to streamline the user experience.

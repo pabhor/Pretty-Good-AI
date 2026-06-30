@@ -1,7 +1,11 @@
 twilio
-deepgram-sdk
+deepgram-sdk>=3,<4
 openai
 python-dotenv
 flask
+flask-sock
 pyngrok
 telnyx
+requests
+scipy
+numpy

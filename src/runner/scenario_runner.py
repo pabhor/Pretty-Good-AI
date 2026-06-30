@@ -5,14 +5,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+_TRANSCRIPTS_DIR = "output/transcripts"
+_RECORDINGS_DIR  = "output/recordings"
+
 
 def save_transcript(state, scenario_id: str) -> str:
-    """
-    Write the full conversation transcript to transcripts/<scenario_id>.txt.
-    Includes metadata header: scenario name, date, duration, turn count, call SID.
-    """
-    os.makedirs("transcripts", exist_ok=True)
-    filepath = f"transcripts/{scenario_id}.txt"
+    os.makedirs(_TRANSCRIPTS_DIR, exist_ok=True)
+    filepath = f"{_TRANSCRIPTS_DIR}/{scenario_id}.txt"
 
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(f"SCENARIO: {state.scenario['name']}\n")
@@ -24,7 +23,7 @@ def save_transcript(state, scenario_id: str) -> str:
         for line in state.transcript_lines:
             f.write(line + "\n")
 
-    print(f"[TRANSCRIPT] Saved → {filepath}")
+    print(f"[TRANSCRIPT] Saved -> {filepath}")
     return filepath
 
 
@@ -34,15 +33,8 @@ def download_recording(
     scenario_id: str,
     max_retries: int = 10,
 ) -> str:
-    """
-    Download the dual-channel call recording from Twilio.
-
-    Twilio processes recordings asynchronously — we retry every 10 seconds
-    for up to 100 seconds before giving up. The recording URL is logged
-    via /recording/done callback in main.py; this function downloads the binary.
-    """
-    os.makedirs("recordings", exist_ok=True)
-    filepath = f"recordings/{scenario_id}.mp3"
+    os.makedirs(_RECORDINGS_DIR, exist_ok=True)
+    filepath = f"{_RECORDINGS_DIR}/{scenario_id}.mp3"
 
     print(f"\n[RECORDING] Waiting for Twilio to process audio...")
 
@@ -78,7 +70,7 @@ def download_recording(
                         f.write(chunk)
 
                 size = os.path.getsize(filepath)
-                print(f"[RECORDING] Saved → {filepath}  ({size:,} bytes)")
+                print(f"[RECORDING] Saved -> {filepath}  ({size:,} bytes)")
                 return filepath
 
             print(f"[RECORDING] HTTP {resp.status_code} — retrying...")

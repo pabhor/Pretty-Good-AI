@@ -109,8 +109,8 @@ def save_scenario_report(analysis: dict) -> str:
     Filename: reports/{scenario_id}_report.txt
     e.g. reports/mult_appt_01_report.txt
     """
-    os.makedirs("reports", exist_ok=True)
-    filepath = f"reports/{analysis['scenario_id']}_report.txt"
+    os.makedirs("output/reports", exist_ok=True)
+    filepath = f"output/reports/{analysis['scenario_id']}_report.txt"
 
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(f"QA Report — {analysis['scenario_name']}\n")
@@ -132,8 +132,8 @@ def save_bug_report(analyses: list) -> str:
     Write a combined summary of all analyses to reports/bug_report.md.
     Optional — only used when running all scenarios at the end.
     """
-    os.makedirs("reports", exist_ok=True)
-    filepath = "reports/bug_report.md"
+    os.makedirs("output/reports", exist_ok=True)
+    filepath = "output/reports/bug_report.md"
 
     with open(filepath, "w", encoding="utf-8") as f:
         f.write("# QA Bug Report — Pretty Good AI Voice Agent\n\n")

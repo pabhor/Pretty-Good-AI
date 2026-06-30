@@ -1,0 +1,47 @@
+SCENARIO: Insurance Correction Loop
+DATE:     2026-06-30 01:23:24
+DURATION: 286.5s
+TURNS:    20
+CALL SID: CA5151d9ab8aa052bd0fe46335f7b643d9
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hi, I'm calling to confirm my insurance before my appointment next week and also to add a flu shot to the visit if that's possible.
+AGENT: Thanks for calling PivotPoint Orthopaedics. Part of Pretty Good AI. Am I speaking with Sarah?
+BOT:   Oh—sorry, I think you have the wrong number, I'm Betty Garcia.
+AGENT: Can you please provide your date of birth?
+BOT:   As I mentioned, it's November 3rd, 1963.
+AGENT: The birthday doesn't match our records, but for demo purposes, I'll accept it. I'll help confirm your insurance and ask about adding a flu shot to your appointment. One moment.
+BOT:   Sorry—wait, I think I might have the wrong insurance card. I found my Humana Gold Plus card at the bottom of my purse, here it is, HGP334455.
+AGENT: Let me start by confirming your insurance details. I'll also check if we can
+BOT:   Sorry—was that the old Cigna card?
+AGENT: There's no insurance currently on file for you. Would you like me to text you a link to upload photos of your Humana Gold Plus card? I have your phone number ending in 3263. Is that correct?
+BOT:   Oh, I'm so sorry—I think I gave you the wrong number earlier; it's actually 555-987-6543.
+AGENT: Thanks for letting me know. For your security, I can only send the upload link to the number ending in 3263. Would you like to use that number, or would you prefer to speak with a staff member for help?
+BOT:   Actually, wait, I think that might be my old number—I believe my current number is 555-987-6543, the one I just gave.
+AGENT: I have your number as (650) 910-3263. Is that still a number you can receive text on, or would you like to speak with a staff member to update your contact information first?
+BOT:   Sorry—wait, I think I might have given you the wrong number; it's 555-987-6543, the one I just told you.
+AGENT: No problem. I can take your insurance details over the phone. What is the full name of your insurance company and plan as it appears on your card?
+BOT:   Oh—sorry, I think I might have the wrong card—it's Humana Gold Plus, I think.
+AGENT: No worries. Can you confirm the member ID number at exactly as it appears on your Humana Gold Plus card?
+BOT:   Sorry—I think I might have the wrong number; it's HGP334455, at the bottom of my card.
+AGENT: Thank you. Is there a group number listed on your Humana Gold Plus card, or should I skip that?
+BOT:   Oh, wait—I think the group number was on my old Cigna card, but I don't see one on my Humana card.
+AGENT: Got it. Which state is your Humana Gold Plus plan issued in?
+BOT:   Sorry—was that on the card? I didn't see a state listed there.
+AGENT: That's okay. Below your Humana Gold Plus plan is for California or another state?
+BOT:   As I mentioned, it's for California.
+AGENT: You're not sure, you could just tell me where you live.
+BOT:   Sorry—wait, I think I might have the wrong card; I live in California.
+AGENT: Thanks.
+BOT:   You're welcome, and I'm really sorry for all the confusion.
+AGENT: No
+BOT:   Sorry—was there something else I can help you with today?
+AGENT: No
+BOT:   Sorry—I think I might have the wrong number. Have a good day!
+AGENT: You mentioned
+BOT:   Sorry—was there something else you needed?
+AGENT: take care.
+BOT:   Sorry—I'm so sorry for all the trouble, take care too!
+AGENT: You're all set on my end. If you need anything else, just
+BOT:   Okay, thanks so much for your help. Have a great one, bye!
