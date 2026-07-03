@@ -1,0 +1,27 @@
+SCENARIO: Billing Dispute
+DATE:     2026-07-03 02:24:18
+DURATION: 158.2s
+TURNS:    10
+CALL SID: CA64abc608dbefbed6c37e2e510f697837
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hello, I'm calling to dispute a bill I believe is a coding error.
+AGENT: You're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   No, this is Nadia Ferreira.
+AGENT: Please provide your full date of birth.
+BOT:   Sure, it's July 30, 1985.
+AGENT: Just to confirm, I have your name as Nadia Ferreira, and your date of birth as 07/30/1985. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   Yes, that's correct. I can spell my name: N, A, D, I, A — F, E, R, R, E, I, R, A.
+AGENT: Thank you. Could you please spell your last name, Ferrera?
+BOT:   Actually, it's Ferreira, spelled F, E, R, R, E, I, R, A.
+AGENT: Would you like me to look up your record using phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth with you again. Which would you prefer?
+BOT:   You can look up my record using the phone number on file. It's 555-664-2210.
+AGENT: I have your phone number as (555) 664-2210. And your date of birth as 07/30/1985. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I document your request for review.
+BOT:   I appreciate that, but could I be transferred to billing directly instead?
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Thank you.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Wait, I think there’s been a mistake. I need to speak with billing about a coding error on my bill.

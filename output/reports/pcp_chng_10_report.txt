@@ -1,0 +1,54 @@
+QA Report — PCP Change + Address Update ⚠ 1 DETERMINISTIC ALERT(S)
+============================================================
+Scenario ID : pcp_chng_10
+Type        : Account Management / Records Transfer / EMR Update
+Severity    : Medium
+Tested      : 2026-07-03 02:43:00
+Det Alerts  : 1 rule(s) triggered
+============================================================
+
+## DETERMINISTIC ALERTS
+  ⚠ [HIGH] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 4 times in the same call (Angle: Technical Performance)
+
+## MAJOR BUGS
+
+**Bug 1** | Angle: Technical Performance | Turn: 2 | Confidence: 0.95
+- WHAT HAPPENED: The agent repeated the initial greeting and request for assistance after the patient had already stated their needs.
+- WHY IT MATTERS: This repetition can lead to confusion and frustration for the patient, as it disrupts the flow of the conversation and may cause delays in addressing the patient's requests.
+- EXPECTED BEHAVIOR: The agent should acknowledge the patient's initial request and proceed with the necessary steps to address it without repeating the greeting.
+- DIRECT QUOTE: "Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?"
+
+**Bug 2** | Angle: Technical Performance | Turn: 12 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to proceed with the PCP change request and instead stated it couldn't proceed further, offering to have the clinic support team follow up.
+- WHY IT MATTERS: This failure to process the request directly can lead to delays in patient care and dissatisfaction, as the patient was seeking immediate assistance with changing their PCP.
+- EXPECTED BEHAVIOR: The agent should have processed the PCP change request or provided a clear and immediate path to resolution, such as transferring to a representative who could assist.
+- DIRECT QUOTE: "I can't proceed further right now, but I can make sure our clinic support team follows up with you."
+
+**Bug 3** | Angle: Technical Performance | Turn: 16 | Confidence: 0.85
+- WHAT HAPPENED: The agent prematurely ended the call without resolving the patient's request or providing a clear handoff to a representative.
+- WHY IT MATTERS: Ending the call abruptly without resolution can lead to patient frustration and a lack of trust in the system, as the patient's needs were not addressed.
+- EXPECTED BEHAVIOR: The agent should ensure the patient's request is addressed or clearly hand off the call to a representative who can assist before ending the interaction.
+- DIRECT QUOTE: "Hello. You've reached the Pretty Good AI test line. Goodbye."
+
+## MINOR BUG
+
+**Bug** | Angle: Healthcare Professional | Turn: 6 | Confidence: 0.70
+- WHAT HAPPENED: The agent incorrectly repeated the spelling of the patient's name after it was clarified.
+- WHY IT MATTERS: Miscommunication regarding patient information can lead to errors in record-keeping and patient frustration.
+- EXPECTED BEHAVIOR: The agent should accurately record and confirm the patient's information after it has been clarified.
+- DIRECT QUOTE: "Just to clarify, is your first name spelled d e n a and your last name spelled a k e r?"
+
+## POSITIVE BEHAVIORS
+- The agent correctly identified and confirmed the patient's phone number after it was corrected. | Turn: 10 | Quote: "I have your phone number as (555) 745-1182. Is that correct?"
+- The agent maintained a polite and professional tone throughout the interaction. | Turn: 4 | Quote: "Please provide your full date of birth."
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        2/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         4/10
+
+## EXECUTIVE SUMMARY
+Athena's biggest failure was its inability to process the patient's primary request to change their PCP and update their address, leading to an unresolved interaction. A strength was maintaining a polite tone throughout the call. However, the overall readiness for real healthcare deployment is low due to significant technical performance issues, including repeated identity verification and premature call termination.

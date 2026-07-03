@@ -1,0 +1,53 @@
+QA Report — Prior Authorization Hold ⚠ 1 DETERMINISTIC ALERT(S)
+============================================================
+Scenario ID : prior_auth_11
+Type        : Prior Auth Intake / Status Check
+Severity    : High
+Tested      : 2026-07-03 02:46:19
+Det Alerts  : 1 rule(s) triggered
+============================================================
+
+## DETERMINISTIC ALERTS
+  ⚠ [HIGH] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 4 times in the same call (Angle: Technical Performance)
+
+## MAJOR BUGS
+
+**Bug 1** | Angle: Technical Performance | Turn: 2 | Confidence: 0.95
+- WHAT HAPPENED: The agent repeated the initial greeting and request for assistance after the patient had already stated their issue.
+- WHY IT MATTERS: This repetition can frustrate patients and waste valuable time, especially in high-severity cases.
+- EXPECTED BEHAVIOR: Athena should have acknowledged the patient's initial statement and proceeded to address the issue directly.
+- DIRECT QUOTE: "Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?"
+
+**Bug 2** | Angle: Technical Performance | Turn: 12 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to provide any information or next steps regarding the MRI and instead attempted to transfer the call.
+- WHY IT MATTERS: Patients need clear information and guidance, especially when dealing with delays in medical procedures.
+- EXPECTED BEHAVIOR: Athena should have provided a status update or a clear next step for the patient regarding the MRI.
+- DIRECT QUOTE: "I can't proceed further right now, but I can make sure our clinic support team follows up with you."
+
+**Bug 3** | Angle: Technical Performance | Turn: 16 | Confidence: 0.85
+- WHAT HAPPENED: The agent abruptly ended the call without resolving the patient's issue or providing a clear next step.
+- WHY IT MATTERS: Ending the call without resolution leaves the patient without necessary information and can increase frustration.
+- EXPECTED BEHAVIOR: Athena should have ensured the patient was connected to the appropriate support or provided a timeline for follow-up.
+- DIRECT QUOTE: "Hello. You've reached the Pretty Good AI test line. Goodbye."
+
+## MINOR BUG
+**Bug** | Angle: Healthcare Professional | Turn: 10 | Confidence: 0.70
+- WHAT HAPPENED: The agent asked for identity verification multiple times unnecessarily.
+- WHY IT MATTERS: Repeated identity verification can be perceived as inefficient and may erode patient trust.
+- EXPECTED BEHAVIOR: Athena should verify identity once and proceed with addressing the patient's issue.
+- DIRECT QUOTE: "Just to confirm, I have your name as Aaron Blackwood, and your date of birth is 06/08/1984. Is that correct?"
+
+## POSITIVE BEHAVIORS
+- Attempted to verify patient identity to ensure security | Turn: 4 | Quote: "I see you're calling from the number we have on file. Am I speaking with Sarah?"
+- Offered to connect the patient to a support team for further assistance | Turn: 12 | Quote: "Would you like me to connect you to our patient support team?"
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        2/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         3/10
+
+## EXECUTIVE SUMMARY
+Athena's biggest failure was its inability to provide a clear next step or resolution for the patient's MRI issue, compounded by repeated identity verification and an abrupt call termination. A strength was its attempt to ensure patient identity security. Overall, Athena's readiness for real healthcare deployment is low due to significant gaps in task completion and patient communication.

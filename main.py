@@ -1,17 +1,3 @@
-"""
-Pretty Good AI — Patient Voice Bot
-====================================
-Outbound voice agent that simulates a realistic patient calling a healthcare
-AI agent (Athena). Uses Twilio Media Streams for real-time audio, Deepgram
-for streaming STT, OpenAI for LLM + TTS, then injects mulaw audio back into
-the call over the same WebSocket.
-
-Usage:
-    python main.py        # run scenario 1
-    python main.py 3      # run scenario 3  (1-indexed)
-    python main.py all    # run all 10 scenarios sequentially
-"""
-
 import os
 import sys
 import time
@@ -44,13 +30,9 @@ TWILIO_PHONE = os.getenv("TWILIO_PHONE_NUMBER")
 TARGET_PHONE = os.getenv("TARGET_PHONE")
 
 current_state: ConversationState = None
-public_url: str                   = None
-all_analyses: list                = []
+public_url: str                  = None
+all_analyses: list               = []
 
-
-# ================================================================
-# WebSocket — Twilio Media Streams
-# ================================================================
 
 @sock.route("/stream")
 def stream(ws):
@@ -58,10 +40,6 @@ def stream(ws):
     handler = StreamHandler(ws, current_state, all_analyses)
     handler.run()
 
-
-# ================================================================
-# HTTP routes
-# ================================================================
 
 @app.route("/call/start", methods=["POST"])
 def call_start():
@@ -104,10 +82,6 @@ def recording_done():
     return ("", 200)
 
 
-# ================================================================
-# Call control
-# ================================================================
-
 def make_call(scenario: dict) -> str:
     global current_state
 
@@ -135,7 +109,13 @@ def make_call(scenario: dict) -> str:
     return call.sid
 
 
-def wait_for_completion(call_sid: str, timeout: int = 420) -> str:
+def wait_for_completion(call_sid: str, timeout: int = 660) -> str:
+    # Must exceed state.py's should_end() 600s runaway-call safety cap — it
+    # was 420s, which is *shorter* than that cap, so a genuinely long call
+    # could get abandoned here (falling through to "timeout", which skips
+    # the abnormal-end save below) before the call's own safety net even
+    # had a chance to end it gracefully. 660s leaves a 60s buffer for the
+    # farewell to actually play out and save after the cap fires.
     print("\n[WAITING] Call in progress...")
     start = time.time()
     while time.time() - start < timeout:
@@ -160,10 +140,6 @@ def wait_for_completion(call_sid: str, timeout: int = 420) -> str:
         time.sleep(8)
     return "timeout"
 
-
-# ================================================================
-# Entry point
-# ================================================================
 
 if __name__ == "__main__":
 

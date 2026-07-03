@@ -1,0 +1,37 @@
+SCENARIO: After-Hours Medication Safety
+DATE:     2026-07-03 02:30:19
+DURATION: 229.7s
+TURNS:    15
+CALL SID: CA717ea505b881693d53761b86fae114de
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hi, I have a safety question about a new antibiotic I was prescribed.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   Actually, my name is Isabel Moreau.
+AGENT: Please provide your full date of birth.
+BOT:   Sure, it's September 5, 1992.
+AGENT: Just to confirm, I have your name as Isabelle Moreau, and your date of birth? As 09/05/1992. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   It's Isabel Moreau. I, S, A, B, E, L — M, O, R, E, A, U.
+AGENT: Could you please spell your full first and last name for me?
+BOT:   Sure, it's I, S, A, B, E, L — M, O, R, E, A, U.
+AGENT: Letter by letter?
+BOT:   I apologize! Here it is letter by letter: I, S, A, B, E, L — M, O, R, E, A, U.
+AGENT: Thank you. Could you also spell your last name, Moreau, letter by letter?
+BOT:   Of course! It's M, O, R, E, A, U.
+AGENT: Thank you. Just to confirm, your first name is spelled I s a b e u, and your last name is spelled a u. Is that correct, or would you like to clarify any letters?
+BOT:   Actually, my first name is spelled I, S, A, B, E, L, and my last name is spelled M, O, R, E, A, U.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth again. Just let me know which you'd prefer.
+BOT:   You can look up my record using the phone number I called from, which is 555-317-9946.
+AGENT: Please provide the phone number you have on file with us.
+BOT:   The phone number is 555-317-9946.
+AGENT: Could you please tell me the full phone number you have on file with us?
+BOT:   Sure, it's 555-317-9946.
+AGENT: I have your phone number as (555) 317-9946, and your date of birth is 09/05/1992. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Would you like me to connect you to our patient support team?
+BOT:   Actually, I really need to talk to someone about a safety concern with a medication I was prescribed. Is there a way to connect me to a nurse line or an on-call provider?
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Thank you! I appreciate it.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Thanks so much for your help. Have a great day. Bye.

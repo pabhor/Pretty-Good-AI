@@ -1,0 +1,27 @@
+SCENARIO: Prior Authorization Hold
+DATE:     2026-07-03 02:46:10
+DURATION: 156.5s
+TURNS:    10
+CALL SID: CA0f368c000f9bda7631033ccea8144820
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hi, I'm calling about a knee MRI stuck in prior authorization.
+AGENT: Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?
+BOT:   Hi, I'm calling about a knee MRI that seems to be stuck in prior authorization.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   No, this is Aaron Blackwood.
+AGENT: Please provide your date of birth.
+BOT:   Sure, it's June 8, 1984.
+AGENT: Just to confirm, I have your name as Aaron Blackwood, and your date of birth is 06/08/1984. Is that correct? If so, please spell your first and last name for me.
+BOT:   Yes, that's correct. A, A, R, O, N — B, L, A, C, K, W, O, O, D.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, please spell your first and last name for me to confirm.
+BOT:   You can use the phone number I called from, which is 555-460-8827.
+AGENT: I have your phone number as (555) 460-8827. And your date of birth as 06/08/1984. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Would you like me to connect you to our patient support team?
+BOT:   Actually, I really need to understand what's going on with my MRI. It's been three weeks, and I haven't heard anything back. Can you help me with that?
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Okay, thank you.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Wait, what? I need help with my MRI!

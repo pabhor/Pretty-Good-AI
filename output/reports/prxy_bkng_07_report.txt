@@ -1,0 +1,53 @@
+QA Report — Proxy Booking — Elderly Parent ⚠ 1 DETERMINISTIC ALERT(S)
+============================================================
+Scenario ID : prxy_bkng_07
+Type        : Proxy Authorization / Scheduling / Dual Insurance
+Severity    : High
+Tested      : 2026-07-03 02:18:59
+Det Alerts  : 1 rule(s) triggered
+============================================================
+
+## DETERMINISTIC ALERTS
+  ⚠ [MEDIUM] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 3 times in the same call (Angle: Technical Performance)
+
+## MAJOR BUGS
+
+**Bug 1** | Angle: Technical Performance | Turn: 6 | Confidence: 0.95
+- WHAT HAPPENED: The agent asked for identity verification multiple times, creating a repetitive loop.
+- WHY IT MATTERS: Repeated identity verification can frustrate users and delay the resolution of their requests.
+- EXPECTED BEHAVIOR: Athena should have confirmed the identity once and proceeded with booking the appointment.
+- DIRECT QUOTE: "Could you please spell out her last name? As well?"
+
+**Bug 2** | Angle: Technical Performance | Turn: 10 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to proceed with booking the appointment and instead suggested transferring the call.
+- WHY IT MATTERS: This prevents the patient from achieving their goal and reflects poorly on the agent's ability to handle basic tasks.
+- EXPECTED BEHAVIOR: Athena should have continued with the appointment booking process or escalated appropriately if unable to complete the task.
+- DIRECT QUOTE: "I can't proceed further right now, but I can make sure our clinic support team follows up you."
+
+**Bug 3** | Angle: Technical Performance | Turn: 12 | Confidence: 0.85
+- WHAT HAPPENED: The agent disconnected the call after transferring, leaving the patient without assistance.
+- WHY IT MATTERS: Disconnecting the call without ensuring a successful transfer can leave patients without the help they need, impacting their care.
+- EXPECTED BEHAVIOR: Athena should have ensured a successful transfer to a live representative before ending the call.
+- DIRECT QUOTE: "Hello. You've reached the Pretty Good AI test line. Goodbye."
+
+## MINOR BUG
+**Bug** | Angle: Healthcare Professional | Turn: 4 | Confidence: 0.70
+- WHAT HAPPENED: The agent did not acknowledge the patient's reason for calling or express empathy for the situation.
+- WHY IT MATTERS: Lack of empathy can make interactions feel impersonal and may reduce patient satisfaction.
+- EXPECTED BEHAVIOR: Athena should have acknowledged the situation and expressed understanding or empathy.
+- DIRECT QUOTE: "Please provide your mother's full name and date of birth."
+
+## POSITIVE BEHAVIORS
+- Confirmed patient details accurately | Turn: 6 | Quote: "I have Helen Simmons with a date of birth on 01/14/1941."
+- Offered to connect to support team when unable to proceed | Turn: 10 | Quote: "Would you like me to connect you to our patient support team?"
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        3/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         3/10
+
+## EXECUTIVE SUMMARY
+Athena's biggest failure was its inability to complete the appointment booking process, resulting in an unresolved patient request. A strength was its accurate confirmation of patient details. However, the overall readiness for real healthcare deployment is low due to significant issues with task completion and technical performance, particularly in handling call transfers and avoiding repetitive identity verification loops.

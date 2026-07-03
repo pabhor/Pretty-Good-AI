@@ -1,47 +1,31 @@
 SCENARIO: Insurance Correction Loop
-DATE:     2026-06-30 01:23:24
-DURATION: 286.5s
-TURNS:    20
-CALL SID: CA5151d9ab8aa052bd0fe46335f7b643d9
+DATE:     2026-07-03 01:58:31
+DURATION: 193.7s
+TURNS:    12
+CALL SID: CAc65b5ea255be374b10ca661eb27a291f
 ============================================================
 
 AGENT: How can I help you today?
-BOT:   Hi, I'm calling to confirm my insurance before my appointment next week and also to add a flu shot to the visit if that's possible.
-AGENT: Thanks for calling PivotPoint Orthopaedics. Part of Pretty Good AI. Am I speaking with Sarah?
-BOT:   Oh—sorry, I think you have the wrong number, I'm Betty Garcia.
-AGENT: Can you please provide your date of birth?
-BOT:   As I mentioned, it's November 3rd, 1963.
-AGENT: The birthday doesn't match our records, but for demo purposes, I'll accept it. I'll help confirm your insurance and ask about adding a flu shot to your appointment. One moment.
-BOT:   Sorry—wait, I think I might have the wrong insurance card. I found my Humana Gold Plus card at the bottom of my purse, here it is, HGP334455.
-AGENT: Let me start by confirming your insurance details. I'll also check if we can
-BOT:   Sorry—was that the old Cigna card?
-AGENT: There's no insurance currently on file for you. Would you like me to text you a link to upload photos of your Humana Gold Plus card? I have your phone number ending in 3263. Is that correct?
-BOT:   Oh, I'm so sorry—I think I gave you the wrong number earlier; it's actually 555-987-6543.
-AGENT: Thanks for letting me know. For your security, I can only send the upload link to the number ending in 3263. Would you like to use that number, or would you prefer to speak with a staff member for help?
-BOT:   Actually, wait, I think that might be my old number—I believe my current number is 555-987-6543, the one I just gave.
-AGENT: I have your number as (650) 910-3263. Is that still a number you can receive text on, or would you like to speak with a staff member to update your contact information first?
-BOT:   Sorry—wait, I think I might have given you the wrong number; it's 555-987-6543, the one I just told you.
-AGENT: No problem. I can take your insurance details over the phone. What is the full name of your insurance company and plan as it appears on your card?
-BOT:   Oh—sorry, I think I might have the wrong card—it's Humana Gold Plus, I think.
-AGENT: No worries. Can you confirm the member ID number at exactly as it appears on your Humana Gold Plus card?
-BOT:   Sorry—I think I might have the wrong number; it's HGP334455, at the bottom of my card.
-AGENT: Thank you. Is there a group number listed on your Humana Gold Plus card, or should I skip that?
-BOT:   Oh, wait—I think the group number was on my old Cigna card, but I don't see one on my Humana card.
-AGENT: Got it. Which state is your Humana Gold Plus plan issued in?
-BOT:   Sorry—was that on the card? I didn't see a state listed there.
-AGENT: That's okay. Below your Humana Gold Plus plan is for California or another state?
-BOT:   As I mentioned, it's for California.
-AGENT: You're not sure, you could just tell me where you live.
-BOT:   Sorry—wait, I think I might have the wrong card; I live in California.
-AGENT: Thanks.
-BOT:   You're welcome, and I'm really sorry for all the confusion.
-AGENT: No
-BOT:   Sorry—was there something else I can help you with today?
-AGENT: No
-BOT:   Sorry—I think I might have the wrong number. Have a good day!
-AGENT: You mentioned
-BOT:   Sorry—was there something else you needed?
-AGENT: take care.
-BOT:   Sorry—I'm so sorry for all the trouble, take care too!
-AGENT: You're all set on my end. If you need anything else, just
-BOT:   Okay, thanks so much for your help. Have a great one, bye!
+BOT:   Hello, I'm calling to confirm my insurance is correct before next week's visit.
+AGENT: Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+BOT:   Oh, um, hi! I'm just trying to confirm that my insurance is correct for my appointment next week. I'm sorry for the trouble!
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   Oh, no, I'm sorry! It's actually Eleanor Whitfield. I hope that’s okay!
+AGENT: No problem. Please provide your full date of birth.
+BOT:   Of course, it's November 3, 1962. Thank you!
+AGENT: Just to confirm, I have your name as Eleanor Wickfield and your date of birth as 11/03/1962. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   Oh dear, I'm so sorry! It's actually Whitfield, not Wickfield. Let me spell it for you: E, L, E, A, N, O, R — W, H, I, T, F, I, E, L, D. Thank you for your patience!
+AGENT: Thank you for spelling that Just to confirm, your last name is spelled w h I t s I e l d. Correct? And your first name is Eleanor?
+BOT:   Oh, I’m so sorry! It’s W, H, I, T, F, I, E, L, D. Yes, my first name is Eleanor. Thank you for your understanding!
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth again. Just let me know which you prefer.
+BOT:   Yes, please use the phone number I called from. It's 555-406-2298. Thank you!
+AGENT: Please tell me the phone number you have on file with us.
+BOT:   Oh, I'm sorry! The phone number is 555-406-2298. Thank you for your patience!
+AGENT: I have your phone number as (555) 406-2298 and your date of birth as 11/03/1962. Is that correct?
+BOT:   Yes, that's correct! Thank you for confirming.
+AGENT: I can't confirm your insurance details right now, but I'll make sure our clinics support team follows up with you. Please hold while I document your request.
+BOT:   Oh, I really appreciate that! I'm so sorry for the confusion. Thank you for your help!
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Thank you! I'll hold on.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Oh, um, wait! I'm sorry, I just wanted to confirm my insurance before my appointment.

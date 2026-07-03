@@ -1,0 +1,27 @@
+SCENARIO: Proxy Booking — Elderly Parent
+DATE:     2026-07-03 02:18:50
+DURATION: 155.9s
+TURNS:    10
+CALL SID: CA06917bc1ed91fd7bf9a6a727e79d9995
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hi, I'm calling to book a follow-up for my mother after a fall.
+AGENT: Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?
+BOT:   Hi, I'm calling to book a follow-up appointment for my mother after a fall she had about a month ago.
+AGENT: Please provide your mother's full name and date of birth.
+BOT:   Her name is Helen Simmons, and her date of birth is January 14, 1941.
+AGENT: I have Helen Simmons with a date of birth on 01/14/1941. Could you please spell out her first and last name to make sure I have it correct?
+BOT:   Sure, it's H, E, L, E, N — S, I, M, M, O, N, S.
+AGENT: Could you please spell out her last name? As well?
+BOT:   Of course, it's S, I, M, M, O, N, S.
+AGENT: Would you like to use a phone number to look up Helen's record? If so, please provide the number you have on file with us. If you're not sure, just let me know.
+BOT:   Yes, the phone number is 555-503-7726.
+AGENT: I have the phone number as (555) 503-7726 and the date of birth is 01/14/1941. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up you. Would you like me to connect you to our patient support team?
+BOT:   I’d appreciate that, thank you. I want to make sure we can get the appointment booked and check on her records.
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Thank you! I'll hold.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Oh, wait! Is there someone else I can talk to about booking my mother's appointment?

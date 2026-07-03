@@ -1,0 +1,29 @@
+SCENARIO: PCP Change + Address Update
+DATE:     2026-07-03 02:42:53
+DURATION: 179.6s
+TURNS:    11
+CALL SID: CAe7a762b2ece022eec2fc79dc6e2f77eb
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hello, I need to switch primary doctors and update my address.
+AGENT: Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?
+BOT:   Hi, I need to switch my primary care doctor and update my address.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   No, this is Dennis Whitaker.
+AGENT: Please provide your full date of birth.
+BOT:   Sure, it's October 10, 1971.
+AGENT: Just to confirm, can you please spell your first and last name for me? And your date of birth is 10/10/1971. Correct?
+BOT:   Yes, that's correct. My name is spelled D, E, N, N, I, S — W, H, I, T, A, K, E, R.
+AGENT: Thank you. Just to clarify, is your first name spelled d e n a and your last name spelled a k e r? And your date of birth is 10/10/1971.
+BOT:   No, my first name is D, E, N, N, I, S and my last name is W, H, I, T, A, K, E, R. My date of birth is still October 10, 1971.
+AGENT: I'd have your first name as Dennis. Last name is Whitaker. Date of birth, 10/10/1971. And phone number, (650) 910-3263 is all of that correct?
+BOT:   Actually, my phone number is 555-745-1182, but yes, my name and date of birth are correct.
+AGENT: I have your phone number as (555) 745-1182. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please stay on the line while I document your request.
+BOT:   I appreciate that, but I’d like to switch to Dr. Chen as my primary care doctor. Can you help me with that?
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Thank you.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Wait, I'm still here. I need to switch my primary care doctor to Dr. Chen.

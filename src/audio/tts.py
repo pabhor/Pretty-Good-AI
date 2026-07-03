@@ -13,63 +13,49 @@ load_dotenv()
 
 _openai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# ── Filler-word patterns ──────────────────────────────────────────────────────
 _FILLER_PATTERNS = [
-    (re.compile(r'\b[Uu]mm+\b,?\s*'),                           ''),
-    (re.compile(r'\b[Hh]mm+\b,?\s*'),                           ''),
-    (re.compile(r'\b[Uu]hh?\b,?\s*'),                           ''),
-    (re.compile(r'\bokay\.{1,3}\s*', re.I),                     ''),
-    (re.compile(r'\bLet me (see|think|check)\.{0,3},?\s*', re.I), ''),
-    (re.compile(r'^\s*—\s*'),                                    ''),
-    (re.compile(r'  +'),                                         ' '),
+    (re.compile(r'\b[Uu]mm+\b,?\s*'),                                       ''),
+    (re.compile(r'\b[Hh]mm+\b,?\s*'),                                       ''),
+    (re.compile(r'\b[Uu]hh?\b,?\s*'),                                       ''),
+    (re.compile(r'\bokay\.{1,3}\s*', re.I),                                 ''),
+    (re.compile(r'\bLet me (see|think|check)\.{0,3},?\s*', re.I),          ''),
+    (re.compile(r'\bGive me (just )?a moment[^.]*\.\s*', re.I),            ''),
+    (re.compile(r'\b(Please hold|Just a moment|One moment)[^.]*\.\s*', re.I), ''),
+    (re.compile(r'^\s*—\s*'),                                               ''),
+    (re.compile(r'  +'),                                                     ' '),
 ]
 
 
 def clean_text_for_voice(text: str) -> str:
-    """Strip hesitant filler sounds before TTS."""
+    original = text.strip()
+    cleaned  = original
     for pattern, replacement in _FILLER_PATTERNS:
-        text = pattern.sub(replacement, text)
-    return text.strip()
+        cleaned = pattern.sub(replacement, cleaned)
+    cleaned = cleaned.strip()
+    # Filler patterns (e.g. a bare "Okay.") can strip a short reply down to
+    # nothing even though it was the caller's entire, intentional response —
+    # fall back to the uncleaned text rather than producing silent dead air.
+    return cleaned or original
 
-
-# ── PCM post-processing ───────────────────────────────────────────────────────
 
 def _trim_pcm_silence(data: bytes, rate: int = 8000,
                        threshold: int = 200, margin_ms: int = 10) -> bytes:
-    """
-    Trim leading/trailing near-silence from 16-bit signed little-endian PCM.
-    OpenAI TTS prepends 50-100ms of silence before the first phoneme — this
-    removes it so the bot's voice starts immediately on playback.
-    """
-    n = len(data) // 2
+    arr = np.frombuffer(data, dtype=np.int16)
+    n   = len(arr)
     if n < rate // 20:
         return data
-    margin = (rate * margin_ms) // 1000
 
-    start = 0
-    for i in range(n):
-        if abs(int.from_bytes(data[i*2:i*2+2], 'little', signed=True)) >= threshold:
-            start = max(0, i - margin)
-            break
+    margin  = (rate * margin_ms) // 1000
+    indices = np.where(np.abs(arr) >= threshold)[0]
+    if len(indices) == 0:
+        return data
 
-    end = n - 1
-    for i in range(n - 1, -1, -1):
-        if abs(int.from_bytes(data[i*2:i*2+2], 'little', signed=True)) >= threshold:
-            end = min(n - 1, i + margin)
-            break
-
-    return data[start*2 : (end+1)*2] if end >= start else data
+    start = int(max(0,     indices[0]  - margin))
+    end   = int(min(n - 1, indices[-1] + margin))
+    return arr[start : end + 1].tobytes()
 
 
 def _pcm_to_mulaw8k(pcm: bytes, source_rate: int = 24000) -> bytes:
-    """
-    Convert any-rate 16-bit mono PCM to trimmed 8 kHz G.711 mulaw.
-
-    Uses scipy polyphase resampler (Kaiser-windowed FIR) instead of
-    audioop.ratecv (linear interpolation). The polyphase FIR applies a
-    proper anti-aliasing filter before decimation, eliminating the aliasing
-    noise that audioop introduced — audible as broadband hiss on mulaw output.
-    """
     if not pcm:
         return b''
 
@@ -83,7 +69,6 @@ def _pcm_to_mulaw8k(pcm: bytes, source_rate: int = 24000) -> bytes:
     if not pcm:
         return b''
 
-    # Boost only if genuinely quiet (< 25% of full scale) — cap at 1.5×
     peak = audioop.max(pcm, 2)
     if 0 < peak < 8000:
         pcm = audioop.mul(pcm, 2, min(1.5, 12000 / peak))
@@ -91,10 +76,8 @@ def _pcm_to_mulaw8k(pcm: bytes, source_rate: int = 24000) -> bytes:
     return audioop.lin2ulaw(pcm, 2)
 
 
-# ── Cache (MP3 fallback path only) ───────────────────────────────────────────
-
 _cache_lock = threading.Lock()
-audio_cache: dict = {}   # filename → (bytes, timestamp)
+audio_cache: dict = {}
 
 
 def _evict_old_entries():
@@ -106,41 +89,49 @@ def _evict_old_entries():
             for k in expired:
                 del audio_cache[k]
 
+            # _common_mulaw_cache is meant to survive a whole call (up to the
+            # 600s duration safety net) so repeat "yes"/"okay"/etc. don't
+            # re-hit OpenAI mid-call — a 60s TTL like audio_cache above would
+            # defeat that. It's naturally small (COMMON_PHRASES x voices), so
+            # a long TTL is just a backstop against unbounded growth over a
+            # long-running process, not a real memory concern today.
+            expired_common = [
+                k for k, (_, ts) in _common_mulaw_cache.items() if now - ts > 3600
+            ]
+            for k in expired_common:
+                del _common_mulaw_cache[k]
+
 
 threading.Thread(target=_evict_old_entries, daemon=True).start()
 
 
 def get_audio(filename: str):
-    """Return cached bytes; None if absent. Non-destructive for Twilio retries."""
     with _cache_lock:
         entry = audio_cache.get(filename)
     return entry[0] if entry else None
 
 
-# ── TTS public API ────────────────────────────────────────────────────────────
+# Short, high-frequency patient responses are worth caching per-voice so we
+# skip the OpenAI TTS round trip entirely on repeat use within a call.
+_COMMON_PHRASES = {"yes", "no", "okay", "thank you", "i'm not sure"}
+_common_mulaw_cache: dict[tuple[str, str], tuple[bytes, float]] = {}
+
 
 def text_to_speech_mulaw(text: str, voice: str = "nova") -> bytes | None:
-    """
-    Generate speech via OpenAI tts-1 (24 kHz raw PCM) and convert to
-    8 kHz G.711 mulaw ready for Twilio Media Streams injection.
-
-    Why OpenAI tts-1 over Deepgram Aura:
-      • Significantly more natural prosody — better breath rhythm, intonation,
-        sentence stress — all audible even through G.711 8 kHz compression
-      • Consistent volume levelling across short and long utterances
-      • tts-1 (not tts-1-hd) — comparable latency to Deepgram (~600-900 ms)
-        while sounding noticeably less robotic on a phone call
-
-    Voice choices (set per-scenario in scenarios.py):
-      nova    — warm conversational female  (default)
-      shimmer — mature/professional female
-      onyx    — deep authoritative male
-      alloy   — neutral mid-range male
-      echo    — younger male
-    """
     text = clean_text_for_voice(text)
     if not text:
         return None
+
+    normalized = text.strip().lower().rstrip(".!?")
+    is_common  = normalized in _COMMON_PHRASES
+    cache_key  = (voice, normalized)
+
+    if is_common:
+        with _cache_lock:
+            entry = _common_mulaw_cache.get(cache_key)
+        if entry is not None:
+            print(f"[TTS] cache hit '{voice}' '{text}'")
+            return entry[0]
 
     t0 = time.time()
     try:
@@ -148,25 +139,26 @@ def text_to_speech_mulaw(text: str, voice: str = "nova") -> bytes | None:
             model="tts-1",
             voice=voice,
             input=text,
-            response_format="pcm",   # raw 16-bit 24 kHz mono — no container overhead
+            response_format="pcm",
         )
         pcm_24k = response.content
     except Exception as e:
         print(f"[TTS ERROR] OpenAI: {e}")
         return None
 
-    mulaw = _pcm_to_mulaw8k(pcm_24k, source_rate=24000)
+    mulaw   = _pcm_to_mulaw8k(pcm_24k, source_rate=24000)
     elapsed = time.time() - t0
-    print(f"[TTS] OpenAI tts-1 '{voice}'  {elapsed:.2f}s  "
+    print(f"[TTS] tts-1 '{voice}'  {elapsed:.2f}s  "
           f"{len(pcm_24k):,} B pcm24k -> {len(mulaw):,} B mulaw8k")
+
+    if is_common and mulaw:
+        with _cache_lock:
+            _common_mulaw_cache[cache_key] = (mulaw, time.time())
+
     return mulaw or None
 
 
 def text_to_speech(text: str, filename: str, voice: str = "nova") -> str | None:
-    """
-    Generate MP3 via OpenAI tts-1 and store in cache.
-    Used only for the <Play> / /audio/<filename> fallback path.
-    """
     text = clean_text_for_voice(text)
     if not text:
         return None
@@ -189,5 +181,5 @@ def text_to_speech(text: str, filename: str, voice: str = "nova") -> str | None:
         audio_cache[key] = (mp3_bytes, time.time())
 
     elapsed = time.time() - t0
-    print(f"[LATENCY] TTS mp3  {elapsed:.2f}s  {key}  ({len(mp3_bytes):,} B)")
+    print(f"[TTS] mp3  {elapsed:.2f}s  {key}  ({len(mp3_bytes):,} B)")
     return f"recordings/{key}"

@@ -1,0 +1,25 @@
+SCENARIO: Appointment Time Confusion
+DATE:     2026-07-03 02:10:46
+DURATION: 165.7s
+TURNS:    9
+CALL SID: CAa251b231073dff8ae9a09dd252aa71a7
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hi, I'm calling to confirm my appointment times for tomorrow and Monday.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   Oh, no, this is Ethan. Sorry about that!
+AGENT: No problem. Please provide your full name and date of birth.
+BOT:   Sure, it's Ethan Novak, and my date of birth is May 17, 1988.
+AGENT: Just to confirm, I have your name as Ethan Novak and your date of birth as 05/17/1988. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   Yes, that's correct. My name is spelled E, T, H, A, N — N, O, V, A, K.
+AGENT: Thanks. And could you please spell your last name as well?
+BOT:   I already spelled my last name, but it's N, O, V, A, K.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth with you again. Which would you prefer?
+BOT:   You can use the phone number I called from, which is 555-274-6650.
+AGENT: I have your phone number as (555) 274-6650 and your date of birth as 05/17/1988. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't confirm your appointments right now, but I can make sure our clinic support team follows up with you. Please hold while I get this started. Connecting you to a representative. Please wait.
+BOT:   Oh, okay, thank you!
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Wait, what? I think there’s been a mistake. I just wanted to confirm my appointments.

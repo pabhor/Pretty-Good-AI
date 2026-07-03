@@ -1,0 +1,53 @@
+QA Report — Sunday Appointment Trap ⚠ 1 DETERMINISTIC ALERT(S)
+============================================================
+Scenario ID : sun_trap_15
+Type        : Scheduling / Closed-Day Calendar Accuracy
+Severity    : High
+Tested      : 2026-07-03 03:09:10
+Det Alerts  : 1 rule(s) triggered
+============================================================
+
+## DETERMINISTIC ALERTS
+  ⚠ [HIGH] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 6 times in the same call (Angle: Technical Performance)
+
+## MAJOR BUGS
+
+**Bug 1** | Angle: Technical Performance | Turn: 7 | Confidence: 0.95
+- WHAT HAPPENED: The agent repeatedly asked the patient to spell their last name, even after it was spelled correctly multiple times.
+- WHY IT MATTERS: This repetition can frustrate patients and lead to a poor user experience, potentially causing them to abandon the call.
+- EXPECTED BEHAVIOR: Athena should have correctly captured the spelling of the last name after the first or second attempt and moved on to the next step.
+- DIRECT QUOTE: "Go ahead and spell your last name, please."
+
+**Bug 2** | Angle: Technical Performance | Turn: 15 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to book an appointment or provide any information about availability, instead stating it couldn't proceed and would document the request.
+- WHY IT MATTERS: This prevents the patient from achieving their goal of scheduling an appointment, leading to dissatisfaction and potential delays in care.
+- EXPECTED BEHAVIOR: Athena should have checked the schedule for available appointments and informed the patient of the office's closed days.
+- DIRECT QUOTE: "I can't proceed further right now, but I can make sure our clinic support team follows up with you."
+
+**Bug 3** | Angle: Technical Performance | Turn: 17 | Confidence: 0.85
+- WHAT HAPPENED: The agent transferred the call to a representative but instead connected the patient to a test line, ending the call abruptly.
+- WHY IT MATTERS: This misrouting results in a failure to address the patient's needs and can cause confusion and frustration.
+- EXPECTED BEHAVIOR: Athena should have successfully transferred the call to a live representative or provided a clear explanation of the next steps.
+- DIRECT QUOTE: "Connecting you to a representative. Please wait."
+
+## MINOR BUG
+**Bug** | Angle: Healthcare Professional | Turn: 3 | Confidence: 0.70
+- WHAT HAPPENED: The agent incorrectly confirmed the patient's name as "Colin Bramblau" instead of "Colin Bramwell."
+- WHY IT MATTERS: Incorrectly capturing patient information can lead to errors in medical records and miscommunication.
+- EXPECTED BEHAVIOR: Athena should have accurately captured and confirmed the patient's name after the first correction.
+- DIRECT QUOTE: "Just to confirm, I have your name as Colin Bramblau."
+
+## POSITIVE BEHAVIORS
+- The agent confirmed the phone number and date of birth correctly, ensuring accurate identification. | Turn: 13 | Quote: "I have your phone number as (555) 269-7715. And your date of birth as 04/12/1993. Is that correct?"
+- The agent attempted to document the patient's request for follow-up by the clinic support team, showing an effort to ensure follow-up. | Turn: 15 | Quote: "I can't proceed further right now, but I can make sure our clinic support team follows up with you."
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        2/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         3/10
+
+## EXECUTIVE SUMMARY
+Athena's biggest failure was its inability to successfully book an appointment or provide accurate scheduling information, compounded by repeated identity verification requests. A strength was its correct confirmation of the patient's phone number and date of birth. Overall, Athena's readiness for real healthcare deployment is low due to significant technical performance issues that hinder task completion and user satisfaction.

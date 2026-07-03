@@ -1,0 +1,29 @@
+SCENARIO: Post-Surgical Wound Concern
+DATE:     2026-07-03 02:54:42
+DURATION: 168.9s
+TURNS:    11
+CALL SID: CA82a77a39cac18addbb7a1299c0351b66
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hi, I have a concern about my incision after knee surgery.
+AGENT: Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?
+BOT:   I have a concern about my incision after knee surgery.
+AGENT: See you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   No, this is Julian.
+AGENT: Please provide your full name and date of birth.
+BOT:   My name is Julian Ashford, and my date of birth is December 3, 1979.
+AGENT: Just to confirm, can you please spell your first and last name for me?
+BOT:   Sure, it's J, U, L, I, A, N — A, S, H, F, O, R, D.
+AGENT: Thank could you also spell your last name for me?
+BOT:   It's A, S, H, F, O, R, D.
+AGENT: I wanna make sure I have your name right. Could you please spell your full last name one more time letter by letter?
+BOT:   Sure, it's A, S, H, F, O, R, D.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth again. Just let me know what you'd prefer.
+BOT:   You can look up my record using my phone number, which is 555-902-4471.
+AGENT: I have your phone number as (555) 902-4471 and your date of birth as 12/03/1979. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I connect you to our patient support team. Connecting you to a representative. Please wait.
+BOT:   Okay, thank you.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Hello? Is this the clinic? I still need help with my incision.

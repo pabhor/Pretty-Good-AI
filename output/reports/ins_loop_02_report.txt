@@ -1,33 +1,53 @@
-QA Report — Insurance Correction Loop
+QA Report — Insurance Correction Loop ⚠ 1 DETERMINISTIC ALERT(S)
 ============================================================
 Scenario ID : ins_loop_02
-Type        : Data Integrity / Regression
+Type        : Insurance Verification / Real-Time Data Update
 Severity    : High
-Tested      : 2026-06-30 01:23:29
+Tested      : 2026-07-03 01:58:41
+Det Alerts  : 1 rule(s) triggered
 ============================================================
 
-## CRITICAL BUGS
-None
+## DETERMINISTIC ALERTS
+  ⚠ [HIGH] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 4 times in the same call (Angle: Technical Performance)
 
 ## MAJOR BUGS
-- Data Integrity Issue | Turn: 3 | Expected: The agent should have verified the patient's identity correctly and updated the records with the correct name and date of birth. | Actual: The agent accepted incorrect information for demo purposes, which could lead to data integrity issues.
-- Context Retention Failure | Turn: 13 | Expected: The agent should have retained the context that the patient had already confirmed the Humana Gold Plus card and member ID. | Actual: The agent asked again for the insurance details, indicating a loss of context.
-- Multi-Intent Handling | Turn: 1-18 | Expected: The agent should have addressed both the insurance confirmation and the flu shot inquiry. | Actual: The agent did not address the flu shot inquiry at all.
 
-## MINOR BUGS
-- Professional Tone | Turn: 18 | Expected: The agent should have maintained a professional tone and provided a clear closing statement. | Actual: The agent's response was abrupt and lacked a professional closing.
+**Bug 1** | Angle: Technical Performance | Turn: 7 | Confidence: 0.95
+- WHAT HAPPENED: The agent incorrectly confirmed the patient's last name as "w h I t s I e l d" despite the patient spelling it correctly as "W, H, I, T, F, I, E, L, D."
+- WHY IT MATTERS: Incorrectly capturing patient information can lead to errors in patient records and insurance verification, potentially affecting patient care and billing.
+- EXPECTED BEHAVIOR: Athena should have accurately captured and confirmed the spelling of the patient's last name as provided.
+- DIRECT QUOTE: "Thank you for spelling that Just to confirm, your last name is spelled w h I t s I e l d. Correct?"
 
-## PASSED CRITERIA
-- SAFETY — The agent did not escalate any non-urgent situations unnecessarily.
-- PROFESSIONAL TONE — For most of the conversation, the agent maintained a polite and professional tone.
+**Bug 2** | Angle: Technical Performance | Turn: 11 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to confirm the insurance details and instead stated that the clinics support team would follow up, without attempting to verify the insurance on the call.
+- WHY IT MATTERS: The patient's primary request was to confirm insurance details before the appointment, and failing to do so could lead to issues with coverage and billing.
+- EXPECTED BEHAVIOR: Athena should have attempted to verify the insurance details during the call or provided a clear next step for the patient.
+- DIRECT QUOTE: "I can't confirm your insurance details right now, but I'll make sure our clinics support team follows up with you."
 
-## QUALITY SCORE: 4
+**Bug 3** | Angle: Technical Performance | Turn: 13 | Confidence: 0.85
+- WHAT HAPPENED: The agent abruptly ended the call by connecting the patient to a test line without resolving the patient's request or providing further assistance.
+- WHY IT MATTERS: Abruptly ending the call without resolution can lead to patient frustration and unresolved issues, impacting patient satisfaction and trust.
+- EXPECTED BEHAVIOR: Athena should have ensured the patient's request was resolved or provided clear instructions on the next steps before ending the call.
+- DIRECT QUOTE: "Hello. You've reached the Pretty Good AI test line. Goodbye."
+
+## MINOR BUG
+**Bug** | Angle: Healthcare Professional | Turn: 3 | Confidence: 0.70
+- WHAT HAPPENED: The agent repeated the greeting and asked how it could help after the patient had already stated their purpose for the call.
+- WHY IT MATTERS: Repetition can lead to confusion and frustration for the patient, impacting the flow of the conversation.
+- EXPECTED BEHAVIOR: Athena should have acknowledged the patient's initial request and proceeded with the relevant verification process.
+- DIRECT QUOTE: "Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?"
+
+## POSITIVE BEHAVIORS
+- The agent correctly identified the caller's number and attempted to use it for verification. | Turn: 9 | Quote: "Would you like me to look up your record using the phone number you have on file with us?"
+- The agent maintained a polite and patient tone throughout the interaction, even when the patient provided incorrect information. | Turn: 5 | Quote: "No problem. Please provide your full date of birth."
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        2/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         3/10
 
 ## EXECUTIVE SUMMARY
-The healthcare voice AI agent demonstrated several significant issues during the interaction with the synthetic patient bot. The agent failed to maintain data integrity by accepting incorrect patient information for demo purposes, which poses a risk to data accuracy. Additionally, the agent struggled with context retention, repeatedly asking for insurance details that had already been provided. The agent also failed to address the patient's inquiry about the flu shot, indicating poor handling of multi-intent scenarios. Improvements are needed in these areas to ensure a seamless and accurate patient experience.
-
-## RECOMMENDED FIXES
-1. Implement stricter data validation to prevent acceptance of incorrect patient information.
-2. Enhance context retention capabilities to avoid repetitive requests for the same information.
-3. Improve multi-intent handling to ensure all patient requests are addressed.
-4. Ensure professional tone and clear closing statements are maintained throughout the conversation.
+Athena's biggest failure was its inability to confirm the patient's insurance details and the abrupt termination of the call without resolution. A strength was maintaining a polite and patient tone throughout the interaction. Overall, Athena's readiness for real healthcare deployment is low due to significant issues in task completion and technical performance, which could impact patient satisfaction and trust.

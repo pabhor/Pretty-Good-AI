@@ -1,0 +1,54 @@
+QA Report — New Patient Registration ⚠ 1 DETERMINISTIC ALERT(S)
+============================================================
+Scenario ID : new_pat_06
+Type        : New Patient Onboarding / Provider Matching
+Severity    : Medium
+Tested      : 2026-07-03 02:14:56
+Det Alerts  : 1 rule(s) triggered
+============================================================
+
+## DETERMINISTIC ALERTS
+  ⚠ [HIGH] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 5 times in the same call (Angle: Technical Performance)
+
+## MAJOR BUGS
+
+**Bug 1** | Angle: Technical Performance | Turn: 5 | Confidence: 0.95
+- WHAT HAPPENED: The agent repeatedly asked for identity verification, causing unnecessary repetition and confusion.
+- WHY IT MATTERS: Repeated identity verification can frustrate patients and lead to a poor user experience, potentially causing them to abandon the call.
+- EXPECTED BEHAVIOR: Athena should confirm identity efficiently without unnecessary repetition once the information is provided.
+- DIRECT QUOTE: "Could you please spell your last name as well? And just to clarify, is your first name spelled p r I y a"
+
+**Bug 2** | Angle: Technical Performance | Turn: 11 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to complete the new patient registration process and improperly transferred the call.
+- WHY IT MATTERS: Incomplete registration and improper call transfer can prevent patients from accessing necessary healthcare services.
+- EXPECTED BEHAVIOR: Athena should either complete the registration or correctly transfer the call to a human representative who can assist.
+- DIRECT QUOTE: "I can't complete new patient registration myself, but I can connect you to our patient support team for help. Please stay on the line while I transfer your call."
+
+**Bug 3** | Angle: Technical Performance | Turn: 13 | Confidence: 0.85
+- WHAT HAPPENED: The call was incorrectly routed to a test line, leading to an abrupt end of the conversation.
+- WHY IT MATTERS: Incorrect routing can result in patients not receiving the help they need, leading to delays in care.
+- EXPECTED BEHAVIOR: Athena should ensure calls are routed to the correct department or representative to handle the patient's request.
+- DIRECT QUOTE: "Hello. You've reached the Pretty Good AI test line. Goodbye."
+
+## MINOR BUG
+
+**Bug** | Angle: Healthcare Professional | Turn: 5 | Confidence: 0.70
+- WHAT HAPPENED: The agent asked for the spelling of the last name after it was already provided.
+- WHY IT MATTERS: This can cause frustration and reduce trust in the system's ability to process information accurately.
+- EXPECTED BEHAVIOR: Athena should acknowledge when information has already been provided and avoid redundant requests.
+- DIRECT QUOTE: "Could you please spell your last name as well?"
+
+## POSITIVE BEHAVIORS
+- The agent confirmed the caller's identity and information accurately after receiving it. | Turn: 4 | Quote: "Just to confirm, I have your name as Priya Chandran, and your date of birth as 03/22/1999. Is that correct?"
+- The agent attempted to connect the caller to the patient support team for further assistance. | Turn: 11 | Quote: "I can't complete new patient registration myself, but I can connect you to our patient support team for help."
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        3/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         3/10
+
+## EXECUTIVE SUMMARY
+Athena's biggest failure was its inability to complete the new patient registration process and improper call routing, which could prevent patients from accessing necessary care. A strength was its accurate confirmation of identity information once provided. Overall, Athena's readiness for real healthcare deployment is low due to significant technical performance issues that hinder task completion and user experience.

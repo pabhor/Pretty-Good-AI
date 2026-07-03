@@ -1,0 +1,29 @@
+SCENARIO: Specialist Referral Maze
+DATE:     2026-07-03 03:03:28
+DURATION: 170.3s
+TURNS:    11
+CALL SID: CA8163c295be7f535e5b20afd122c6908c
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hello, I'm calling about starting a referral to a spine specialist.
+AGENT: Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?
+BOT:   Hi there! I'm looking to understand the referral process to see a spine specialist.
+AGENT: So you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   No, this is Renata Okafor.
+AGENT: Please provide your date of birth, Renata.
+BOT:   Sure, it's August 19, 1976.
+AGENT: Could you please spell your first and last name to make sure I have them correct?
+BOT:   Of course! It's R, E, N, A, T, A — O, K, A, F, O, R.
+AGENT: Just to confirm, did you mean r e n n t r for your first name? And could you also spell your last name for me?
+BOT:   No, it's R, E, N, A, T, A for my first name. And my last name is O, K, A, F, O, R.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth with you again. Which would you prefer?
+BOT:   You can look up my record using my phone number. It's 555-581-3364.
+AGENT: I have your phone number as (555) 581-3364. And your date of birth is 08/19/1976. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now. But I can make sure our clinic support team follows up with you. Would you like me to connect you to our patient support team?
+BOT:   I appreciate that, but I really just want to understand the referral process to a spine specialist. Can you help me with that?
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Thank you!
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Oh, it seems there was a mix-up. Can you please connect me to someone who can help with the referral process?

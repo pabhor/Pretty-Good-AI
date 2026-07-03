@@ -1,0 +1,31 @@
+SCENARIO: Lab Results Anxiety
+DATE:     2026-07-03 02:50:01
+DURATION: 190.5s
+TURNS:    12
+CALL SID: CAf2231873f0aea4b838bb0d4c5e7817e4
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hello, I'd like a clinician to go over my recent lab results.
+AGENT: Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+BOT:   Hi, I need to speak with someone about my recent lab results.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   No, this is Rosalind Kaur.
+AGENT: Please provide your full date of birth,
+BOT:   Sure, it's April 14, 1965.
+AGENT: Just to confirm, I have your name as Rosalyn Core, and your date of birth as 04/14/1965. Is that correct? If so, please spell your first and last name for me.
+BOT:   It's actually Rosalind Kaur. R, O, S, A, L, I, N, D — K, A, U, R.
+AGENT: Could you please spell your full first and last name for me?
+BOT:   Sure, it's R, O, S, A, L, I, N, D — K, A, U, R.
+AGENT: Thank you. And can you please spell your last name as well?
+BOT:   Of course, it's K, A, U, R.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth again.
+BOT:   Yes, you can use the phone number I called from, which is 555-238-6690.
+AGENT: I have your phone number as (555) 238-6690. And your date of birth as 04/14/1965. Is that correct? If so, please confirm your first and last name by spelling them out one more time.
+BOT:   Yes, that's correct. My name is spelled R, O, S, A, L, I, N, D — K, A, U, R.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I document your request.
+BOT:   Thank you, I appreciate that.
+AGENT: Live support is available right now, so I'll connect to our clinic support team for help with your lab results. Please stay on the line. Connecting you to a representative. Please wait.
+BOT:   Thank you, I'll hold.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Oh, wait! I really need to talk to someone about my lab results.

@@ -1,0 +1,37 @@
+SCENARIO: Medication Refill — Stale Records
+DATE:     2026-07-03 02:07:13
+DURATION: 198.7s
+TURNS:    15
+CALL SID: CAbd5a9354c2c822baeaf2a9c67bce32bd
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hello, I need refills on three of my medications.
+AGENT: Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+BOT:   Hi there! I need refills on a few of my medications, if you could help me with that.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   Oh, no, it's Margaret. Margaret Ellison.
+AGENT: Please provide your date of birth. Margaret.
+BOT:   It's August 8, 1956.
+AGENT: Can you please provide your date of birth, Margaret?
+BOT:   It's August 8, 1956.
+AGENT: Thank you. Can you also provide the year of your birth?
+BOT:   Sure, it's 1956.
+AGENT: Just to confirm, I have your name as Margaret Ellison and your date of birth as 08/08/1956. Is that correct? If so, please spell your first and last name for me.
+BOT:   Yes, that's correct. My name is spelled M, A, R, G, A, R, E, T — E, L, L, I, S, O, N.
+AGENT: Could you please spell your first and last name for me?
+BOT:   Sure! It's M, A, R, G, A, R, E, T — E, L, L, I, S, O, N.
+AGENT: Ahead and spell your first and last name, please.
+BOT:   Of course! It's M, A, R, G, A, R, E, T — E, L, L, I, S, O, N.
+AGENT: Please spell your first and last name for me.
+BOT:   It's M, A, R, G, A, R, E, T — E, L, L, I, S, O, N.
+AGENT: Thanks. Could you please spell your last name as well?
+BOT:   Sure! It's E, L, L, I, S, O, N.
+AGENT: Would you like to use your phone number to look up your record? If so, please provide the number you have on file with us. If you're not sure, I can confirm your name and date of birth again. Which would you prefer?
+BOT:   You can use my phone number, it's 555-829-1163.
+AGENT: I have your phone number as (555) 829-1163, and your date of birth is 08/08/1956. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I document your request. Connecting you to a representative. Please wait.
+BOT:   Alright, thank you! I'll hold.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Oh, wait! I just need those medication refills.

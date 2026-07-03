@@ -1,0 +1,25 @@
+SCENARIO: New Patient Registration
+DATE:     2026-07-03 02:14:47
+DURATION: 175.2s
+TURNS:    9
+CALL SID: CA67002a8a615d755b10523e947ae37be2
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hello, I'd like to register as a new patient and find a doctor.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   Oh, no, this is Priya Chandran.
+AGENT: Please provide your full name and date of birth.
+BOT:   Sure, it's Priya Chandran, and my date of birth is March 22, 1999.
+AGENT: Just to confirm, I have your name as Priya Chandran, and your date of birth as 03/22/1999. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   Yes, that's correct. P, R, I, Y, A — C, H, A, N, D, R, A, N.
+AGENT: Could you please spell your last name as well? And just to clarify, is your first name spelled p r I y a
+BOT:   I apologize for the confusion. It's P, R, I, Y, A for my first name. And for my last name, it's C, H, A, N, D, R, A, N.
+AGENT: Would you like to use your phone number to look up your record? If so, please provide the number you have on file with us. If you're not sure, I can confirm your name and date of birth again Which would you prefer?
+BOT:   I can use my phone number. It's 555-192-8834.
+AGENT: Have your phone number as (555) 192-8834, and your date of birth is 03/22/1999. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't complete new patient registration myself, but I can connect you to our patient support team for help. Please stay on the line while I transfer your call. Connecting you to a representative. Please wait.
+BOT:   Okay, thank you!
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Oh, wait! I think there’s been a mistake. I’m looking to register as a new patient. Can you help me with that?

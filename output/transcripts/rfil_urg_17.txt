@@ -1,0 +1,29 @@
+SCENARIO: Urgent Last Pill Refill
+DATE:     2026-07-03 03:16:18
+DURATION: 178.2s
+TURNS:    11
+CALL SID: CAfb5b73d93198fd95e53f8393e17196b2
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Hello, I urgently need a prescription refill. I only have one pill left.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   No, this is Miles Thackeray.
+AGENT: Please provide your full date of birth.
+BOT:   Sure, it's September 5, 1999.
+AGENT: Just to confirm, I have your name as Miles Fakery and your date of birth as 09/05/1999. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   It's Miles Thackeray. That's M, I, L, E, S — T, H, A, C, K, E, R.
+AGENT: Could you please spell your last name, Thackeray, for me?
+BOT:   Sure, that's T, H, A, C, K, E, R, A, Y.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth again. Just let me know.
+BOT:   Yes, please look it up using my phone number. It's 555-847-3320.
+AGENT: Please tell me the phone number you have on file with us.
+BOT:   The phone number I have on file is 555-847-3320.
+AGENT: Please provide the phone number you have on file with us.
+BOT:   It's 555-847-3320.
+AGENT: I have your phone number as (555) 847-3320 and your date of birth as 09/05/1999. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinics support team follows up with you. Please hold while I connect you to our patient support team. Connecting you to a representative. Please wait.
+BOT:   Okay, thank you.
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Wait, I'm still here! I really need help with my prescription refill.

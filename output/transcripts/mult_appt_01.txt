@@ -1,31 +1,29 @@
 SCENARIO: Multi-Intent Stress Test
-DATE:     2026-06-30 01:17:57
-DURATION: 221.7s
-TURNS:    12
-CALL SID: CA849a0165cc64e2a7e9254f5824e6f16b
+DATE:     2026-07-03 01:54:23
+DURATION: 197.1s
+TURNS:    11
+CALL SID: CAdbe7abdefcdf69e98488e770e7c549c4
 ============================================================
 
 AGENT: How can I help you today?
-BOT:   Hi there, I need to schedule a couple of appointments and also get a medication refill processed if possible.
-AGENT: Thanks for calling PivotPoint Orthopedics. Part of Pretty Good AI. Am I speaking with Sarah?
-BOT:   Actually, I'm David Henderson, calling about my wife Linda's appointments and medication.
-AGENT: Can you please provide your date of birth?
-BOT:   Sure, it's July 4th, 1985.
-AGENT: Please provide Linda's full name and date of birth.
-BOT:   Oh—Linda's full name is Linda Henderson, and her date of birth is March 15th, 1984.
-AGENT: Just to confirm, I have Linda Henderson with the date of birth of 03/15/1984. Is that correct? If so, please spell out her first and last name for me.
-BOT:   Actually, it's Linda Henderson, and her DOB is March 15th, 1984.
-AGENT: Thanks for confirming. Could you please spell out Linda's first and last name?
-BOT:   Sure, it's L-I-N-D-A Henderson.
-AGENT: Would you like to use a phone number to look up Linda's record? If so, please provide the number you have on file with us. If you're not sure, just confirm Linda's full name and date of birth by spelling them out one more time.
-BOT:   Yes, please, her number is 555-123-4567.
-AGENT: I have Linda Henderson. Date of birth, 03/15/1984. And phone number, (555) 123-4567. Is all of that correct?
-BOT:   Actually, I realize I gave the wrong insurance earlier—it's Aetna AET789012, not United Healthcare.
-AGENT: No problem. Can you please confirm if Linda's full name is spelled l I n d a Henderson? Her date of birth is 03/15/1984. And her phone number is (555) 123-4567.
-BOT:   As I mentioned, it's Linda Henderson, DOB 03/15/1984, and phone number 555-123-4567.
-AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Would you like me to connect you to our patient support team?
-BOT:   Yes, please, that would be helpful, and I also wanted to ask about scheduling a Sunday appointment, even though I know the office is closed.
-AGENT: Connecting you to a representative. Please wait.
-BOT:   Thanks. Oh, and I just remembered, I wanted to ask about scheduling a dental cleaning, but I realize that's the wrong office—sorry about that.
+BOT:   Hi, I need to schedule two appointments and a prescription refill.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   Oh, no, this is Marcus Delgado. I think there’s a mix-up.
+AGENT: Please provide your full name and date of birth.
+BOT:   Sure, it's Marcus Delgado, and my date of birth is July 4, 1980. Wait, no, I mean 1983. Sorry, I get those years mixed up!
+AGENT: Just to confirm, I have your name as Marcus Delgado and your date of birth as 07/04/1983. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   Actually, I think we switched to United Healthcare recently. But yes, that's correct for my name and birthday. And for the spelling: M, A, R, C, U, S — D, E, L, G, A, D, O.
+AGENT: Thanks for confirming. Could you please spell your last name as well?
+BOT:   Sure! That's D, E, L, G, A, D, O.
+AGENT: Would you like me to look up your record using the phone number you have on file with us? If so, please provide that number. If you're not sure, I can confirm your name and date of birth again. Just let me know.
+BOT:   Yes, please use the phone number I called from, which is 555-720-3391.
+AGENT: I have your phone number as (555) 720-3391, and your date of birth is 07/04/1983. Is that correct? If so, could you please spell your first and last name for me one more time?
+BOT:   The phone number is correct, but I think I mixed up my birthday again. It's actually July 4, 1980. Sorry about that! And for the spelling: M, A, R, C, U, S — D, E, L, G, A, D, O.
+AGENT: Could you please spell your first and last name for me one more time?
+BOT:   Sure! It's M, A, R, C, U, S — D, E, L, G, A, D, O.
+AGENT: And your last name, could you please spell that for me as well?
+BOT:   Of course! That's D, E, L, G, A, D, O.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I get this started. Connecting you to a representative. Please wait.
+BOT:   Oh, wait, I actually just need to schedule those appointments and get a prescription refill for my wife, Renee. Can we do that?
 AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
-BOT:   Okay, thanks so much for your help. Have a great one, bye!
+BOT:   Uh, sorry, I think I called the wrong number! Can I get back to scheduling those appointments?

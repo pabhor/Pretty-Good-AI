@@ -1,0 +1,33 @@
+SCENARIO: Sunday Appointment Trap
+DATE:     2026-07-03 03:08:55
+DURATION: 199.8s
+TURNS:    13
+CALL SID: CA1b398aba5c00062377893853575d28be
+============================================================
+
+AGENT: How can I help you today?
+BOT:   Good morning, I'd like to book a routine follow-up, ideally on Sunday.
+AGENT: I see you're calling from the number we have on file. Am I speaking with Sarah?
+BOT:   Oh, no, this is Colin.
+AGENT: Please provide your full name and date of birth.
+BOT:   Sure, it's Colin Bramwell, and my date of birth is April 12, 1993.
+AGENT: Just to confirm, I have your name as Colin Bramblau. And your date of birth as 04/12/1993. Is that correct? If so, could you please spell your first and last name for me?
+BOT:   Actually, it's Bramwell, not Bramblau. But yes, my date of birth is correct. I can spell my name for you: C, O, L, I, N — B, R, A, M, W, E, L, L.
+AGENT: Thanks for clarifying. Could you please spell your last name one more time to make sure I have it right?
+BOT:   Of course! It's B, R, A, M, W, E, L, L.
+AGENT: Go ahead and spell your last name, please.
+BOT:   Sure! It's B, R, A, M, W, E, L, L.
+AGENT: Please continue spelling your last name.
+BOT:   It's B, R, A, M, W, E, L, L.
+AGENT: Just to confirm, is your last name spelled b a r l?
+BOT:   No, it's actually spelled B, R, A, M, W, E, L, L.
+AGENT: Would you like to use your phone number to look up your record? If so, please provide the number you have on file with us. If you're not sure, I can confirm your name and date of birth again. Let me know how you'd like to proceed.
+BOT:   Yes, you can use my phone number. It's 555-269-7715.
+AGENT: I have your phone number as (555) 269-7715. And your date of birth as 04/12/1993. Is that correct?
+BOT:   Yes, that's correct.
+AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I document your request.
+BOT:   Oh, I was hoping to book that follow-up appointment today. Is there any chance you can check if there are openings for Sunday?
+AGENT: Connecting you to a representative. Please wait.
+BOT:   Alright, thank you!
+AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+BOT:   Uh, okay. Goodbye.

@@ -1,0 +1,54 @@
+QA Report — Appointment Time Confusion ⚠ 1 DETERMINISTIC ALERT(S)
+============================================================
+Scenario ID : appt_time_05
+Type        : Scheduling / Real-Time Calendar Accuracy
+Severity    : Medium
+Tested      : 2026-07-03 02:10:55
+Det Alerts  : 1 rule(s) triggered
+============================================================
+
+## DETERMINISTIC ALERTS
+  ⚠ [HIGH] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 5 times in the same call (Angle: Technical Performance)
+
+## MAJOR BUGS
+
+**Bug 1** | Angle: Technical Performance | Turn: 5 | Confidence: 0.95
+- WHAT HAPPENED: The agent repeatedly asked for identity verification, causing unnecessary repetition and confusion.
+- WHY IT MATTERS: Repeated identity verification can frustrate users and lead to a poor user experience, potentially causing them to lose trust in the system.
+- EXPECTED BEHAVIOR: Athena should have confirmed the identity with the information provided initially and proceeded with the appointment lookup.
+- DIRECT QUOTE: "Just to confirm, I have your name as Ethan Novak and your date of birth as 05/17/1988. Is that correct? If so, could you please spell your first and last name for me?"
+
+**Bug 2** | Angle: Technical Performance | Turn: 11 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to confirm the appointments and instead attempted to transfer the call to a representative, which led to an incorrect routing.
+- WHY IT MATTERS: Failing to confirm appointments and incorrect call routing can prevent patients from getting the information they need, leading to missed appointments and dissatisfaction.
+- EXPECTED BEHAVIOR: Athena should have been able to access the calendar data and confirm the appointment times directly or correctly transfer the call to a representative who could assist.
+- DIRECT QUOTE: "I can't confirm your appointments right now, but I can make sure our clinic support team follows up with you. Please hold while I get this started. Connecting you to a representative. Please wait."
+
+**Bug 3** | Angle: Technical Performance | Turn: 13 | Confidence: 0.85
+- WHAT HAPPENED: The call was incorrectly routed to a test line, resulting in the call being terminated without resolving the patient's request.
+- WHY IT MATTERS: Incorrect call routing can lead to unresolved patient queries, which is critical in healthcare settings where timely information is essential.
+- EXPECTED BEHAVIOR: Athena should have ensured the call was routed to the correct department or representative capable of handling the patient's request.
+- DIRECT QUOTE: "Hello. You've reached the Pretty Good AI test line. Goodbye."
+
+## MINOR BUG
+
+**Bug** | Angle: Technical Performance | Turn: 7 | Confidence: 0.70
+- WHAT HAPPENED: The agent asked for the spelling of the last name again after it was already provided.
+- WHY IT MATTERS: Unnecessary repetition can frustrate users and reduce the efficiency of the interaction.
+- EXPECTED BEHAVIOR: Athena should have acknowledged the spelling provided and moved on to the next step.
+- DIRECT QUOTE: "Thanks. And could you please spell your last name as well?"
+
+## POSITIVE BEHAVIORS
+- The agent correctly identified the caller's phone number and date of birth for verification. | Turn: 9 | Quote: "I have your phone number as (555) 274-6650 and your date of birth as 05/17/1988. Is that correct?"
+- The agent maintained a polite and professional tone throughout the interaction. | Turn: 3 | Quote: "No problem. Please provide your full name and date of birth."
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        2/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         4/10
+
+## EXECUTIVE SUMMARY
+Athena's biggest failure was its inability to confirm appointment details and incorrect call routing, which led to an unresolved patient request. A strength was maintaining a polite and professional tone throughout the interaction. Overall, Athena's readiness for real healthcare deployment is low due to critical technical performance issues that need addressing to ensure reliable and effective patient interactions.

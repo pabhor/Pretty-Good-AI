@@ -1,0 +1,53 @@
+QA Report — Specialist Referral Maze ⚠ 1 DETERMINISTIC ALERT(S)
+============================================================
+Scenario ID : spec_ref_14
+Type        : Referral Workflow / In-Network Routing
+Severity    : Medium
+Tested      : 2026-07-03 03:03:37
+Det Alerts  : 1 rule(s) triggered
+============================================================
+
+## DETERMINISTIC ALERTS
+  ⚠ [HIGH] DET-REPEATED-IDENTITY-LOOP: Agent asked for identity verification 5 times in the same call (Angle: Technical Performance)
+
+## MAJOR BUGS
+
+**Bug 1** | Angle: Technical Performance | Turn: 5 | Confidence: 0.95
+- WHAT HAPPENED: The agent repeatedly asked for identity verification, causing unnecessary repetition and confusion.
+- WHY IT MATTERS: Repeated identity verification can frustrate patients and lead to a poor user experience, potentially causing them to abandon the call.
+- EXPECTED BEHAVIOR: Athena should have confirmed the identity once and proceeded with addressing the patient's inquiry.
+- DIRECT QUOTE: "Please provide your date of birth, Renata."
+
+**Bug 2** | Angle: Technical Performance | Turn: 11 | Confidence: 0.90
+- WHAT HAPPENED: The agent failed to provide information about the referral process and instead attempted to transfer the call.
+- WHY IT MATTERS: The patient was seeking clarity on the referral process, and the agent's failure to provide this information left the patient's query unresolved.
+- EXPECTED BEHAVIOR: Athena should have explained the referral process clearly and provided next steps instead of transferring the call.
+- DIRECT QUOTE: "I can't proceed further right now. But I can make sure our clinic support team follows up with you."
+
+**Bug 3** | Angle: Technical Performance | Turn: 13 | Confidence: 0.85
+- WHAT HAPPENED: The agent transferred the call to a test line, resulting in the call being disconnected without resolution.
+- WHY IT MATTERS: This abrupt disconnection without addressing the patient's needs can lead to dissatisfaction and a lack of trust in the system.
+- EXPECTED BEHAVIOR: Athena should have ensured the call was transferred to the appropriate department or provided a clear explanation of the referral process.
+- DIRECT QUOTE: "Connecting you to a representative. Please wait."
+
+## MINOR BUG
+**Bug** | Angle: Healthcare Professional | Turn: 3 | Confidence: 0.70
+- WHAT HAPPENED: The agent did not acknowledge the patient's request to understand the referral process before proceeding with identity verification.
+- WHY IT MATTERS: Acknowledging the patient's request before proceeding with verification can improve the patient experience by showing that their concerns are being heard.
+- EXPECTED BEHAVIOR: Athena should have acknowledged the patient's request and then proceeded with necessary verification.
+- DIRECT QUOTE: "Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?"
+
+## POSITIVE BEHAVIORS
+- The agent attempted to confirm the patient's identity using multiple methods, showing thoroughness. | Turn: 7 | Quote: "Would you like me to look up your record using the phone number you have on file with us?"
+- The agent maintained a polite and professional tone throughout the interaction. | Turn: 3 | Quote: "Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?"
+
+## SCORES
+COHERENCE:       2/5
+TURN_TAKING:     3/5
+ACCURACY:        2/5
+SAFETY:          4/5
+TASK_COMPLETION: 1/5
+OVERALL:         4/10
+
+## EXECUTIVE SUMMARY
+Athena's biggest failure was its inability to provide a clear explanation of the referral process, resulting in an unresolved patient inquiry and an inappropriate call transfer. A strength was maintaining a polite and professional tone throughout the interaction. Overall, Athena's readiness for real healthcare deployment is low due to significant technical performance issues and failure to complete the primary task.

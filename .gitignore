@@ -3,3 +3,11 @@ __pycache__/
 .env
 *.pyc
 *.db
+
+# Internal analysis/audit files — not for submission
+ANALYSIS_*.md
+FINAL_BRIEFING.md
+IMPLEMENTATION_SUMMARY.md
+RECOMMENDATIONS_AND_PATTERNS.md
+RESEARCH_COMPARISON_REPORT.md
+COMPREHENSIVE_CODE_AUDIT.json
